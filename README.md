@@ -2,6 +2,17 @@
 
 A tiny collection of (more or less) useful Swift operators.
 
+## Use with SPM
+
+```Text
+dependencies: [
+    // Dependencies declare other packages that this package depends on.
+    ...
+    .package(url: "https://github.com/Pyroh/SmoothOperators.git", .upToNextMajor(from: "0.4.0")),
+    ...
+],
+```
+
 ## Numeric manipulation oriented operators
 
 - Adds back prefixed and postfixed `++` and `--` operators.
@@ -58,6 +69,24 @@ let b: Int? = nil
 
 !!a // true
 !!a // false
+```
+
+### NaN-Coalescing `??`
+Is the same as the nil-coalescing operator but for floating point values. These values can be NaN.   
+This operator returns the value if it's not NaN otherwise it returns the default value.
+
+```Swift
+let a: Double? = 42
+let b: Double? = nil
+let c: Double = 42
+let d: Double = .nan
+let e: Double? = .nan
+
+a ?? 0 // 42.0
+b ?? 0 // 0.0
+c ?? 0 // 42.0
+d ?? 0 // 0.0
+(e ?? 0) ?? 1 // 1.0
 ```
 
 ## License

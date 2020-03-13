@@ -109,6 +109,20 @@ final class SmoothOperatorsTests: XCTestCase {
         
         XCTAssert(a == 20)
     }
+    
+    func testNaNCoalescing() {
+        let a: Double? = 42
+        let b: Double? = nil
+        let c: Double = 42
+        let d: Double = .nan
+        let e: Double? = .nan
+        
+        XCTAssert(a ?? 0 == 42)
+        XCTAssert(b ?? 0 == 0)
+        XCTAssert(c ?? 0 == 42)
+        XCTAssert(d ?? 0 == 0)
+        XCTAssert((e ?? 0) ?? 1 == 1)
+    }
 
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),
