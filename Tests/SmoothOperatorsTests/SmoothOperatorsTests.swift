@@ -122,6 +122,18 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(c ?? 0 == 42)
         XCTAssert(d ?? 0 == 0)
         XCTAssert((e ?? 0) ?? 1 == 1)
+
+        let f: Decimal? = 42
+        let g: Decimal? = nil
+        let h: Decimal = 42
+        let i: Decimal = .nan
+        let j: Decimal? = .nan
+
+        XCTAssert(f ?? 0 == 42)
+        XCTAssert(g ?? 0 == 0)
+        XCTAssert(h ?? 0 == 42)
+        XCTAssert(i ?? 0 == 0)
+        XCTAssert((j ?? 0) ?? 1 == 1)
     }
 
     static var allTests = [
