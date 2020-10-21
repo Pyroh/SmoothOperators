@@ -89,6 +89,10 @@ d ?? 0 // 0.0
 (e ?? 0) ?? 1 // 1.0
 ```
 
+### Empty-Coalescing `??`
+Is the same as the nil-coalescing operator but for collections.
+This operator returns the collection if it's not empty otherwise it returns the default collection.
+
 ## License
 
 See LICENSE.

@@ -135,6 +135,14 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(i ?? 0 == 0)
         XCTAssert((j ?? 0) ?? 1 == 1)
     }
+    
+    func testEmptyCoalescing() {
+        let a = "Hello"
+        let b = ""
+        
+        XCTAssert(a ?? "foo" == a)
+        XCTAssert(b ?? "foo" == "foo")
+    }
 
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),
