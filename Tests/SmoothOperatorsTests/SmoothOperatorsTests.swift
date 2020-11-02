@@ -143,6 +143,17 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(a ?? "foo" == a)
         XCTAssert(b ?? "foo" == "foo")
     }
+    
+    func testOptionalAssignment() {
+        var a: Int? = 0
+        var b: Int?
+        
+        a ?= 42
+        b ?= 42
+        
+        XCTAssert(a == 0)
+        XCTAssert(b == 42)
+    }
 
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),

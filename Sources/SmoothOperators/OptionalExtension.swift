@@ -35,4 +35,8 @@ public extension Optional {
     static prefix func !!(rhs: Self) -> Bool {
         return rhs != nil
     }
+    
+    static func ?=(lhs: inout Self, rhs: Wrapped) {
+        lhs = lhs ?? rhs
+    }
 }

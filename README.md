@@ -93,6 +93,10 @@ d ?? 0 // 0.0
 Is the same as the nil-coalescing operator but for collections.
 This operator returns the collection if it's not empty otherwise it returns the default collection.
 
+### Optional assignment `?=`
+Assign the right hand side value to the left hand side optional if its nil.
+`a ?= 42` is equivalent to `a = a ?? 42` for any `var a: Int?`.
+
 ## License
 
 See LICENSE.

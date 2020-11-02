@@ -45,6 +45,7 @@ postfix operator -
 postfix operator +
 
 infix operator <-: AssignmentPrecedence
+infix operator ?=: AssignmentPrecedence
 
 infix operator **: ExponentationPrecedence
 
