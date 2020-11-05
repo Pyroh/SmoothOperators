@@ -154,6 +154,18 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(a == 0)
         XCTAssert(b == 42)
     }
+    
+    func testPercent() {
+        let a: CGFloat = 60%
+        let b = 70%
+        XCTAssert(a == 0.6)
+        XCTAssert(b == 0.7)
+        
+        let c: CGFloat = 60.5%
+        let d = 70.5%
+        XCTAssert(c == 0.605)
+        XCTAssert(d == 0.705)
+    }
 
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),

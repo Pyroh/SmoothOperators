@@ -44,6 +44,8 @@ postfix operator --
 postfix operator -
 postfix operator +
 
+postfix operator %
+
 infix operator <-: AssignmentPrecedence
 infix operator ?=: AssignmentPrecedence
 
@@ -66,4 +68,20 @@ infix operator !=?: ComparisonPrecedence
 @inlinable
 public func <-<T>(lhs: inout T, rhs: (T) throws -> T) rethrows {
     lhs = try rhs(lhs)
+}
+
+public postfix func %<I: BinaryInteger, O: BinaryFloatingPoint>(_ lhs: I) -> O {
+    O(lhs) / 100.0
+}
+
+public postfix func %<I: BinaryFloatingPoint, O: BinaryFloatingPoint>(_ lhs: I) -> O {
+    O(lhs) / 100.0
+}
+
+public postfix func %<I: BinaryInteger>(_ lhs: I) -> Double {
+    Double(lhs) / 100.0
+}
+
+public postfix func %<I: BinaryFloatingPoint>(_ lhs: I) -> Double {
+    Double(lhs) / 100.0
 }
