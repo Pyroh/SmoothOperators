@@ -71,6 +71,11 @@ public func <-<T>(lhs: inout T, rhs: (T) throws -> T) rethrows {
     lhs = try rhs(lhs)
 }
 
+@inlinable
+public func ?=<T>(lhs: inout T, rhs: T?) {
+    lhs = rhs ?? lhs
+}
+
 public postfix func %<I: BinaryInteger>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
 
 public postfix func %<I: BinaryFloatingPoint>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
