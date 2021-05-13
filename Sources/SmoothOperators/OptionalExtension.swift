@@ -36,7 +36,17 @@ public extension Optional {
         return rhs != nil
     }
     
-    static func ?=(lhs: inout Self, rhs: Wrapped) {
-        lhs = lhs ?? rhs
+    static func ?=(lhs: inout Self, rhs: @autoclosure () throws -> Wrapped) rethrows {
+        guard lhs == nil else { return }
+        lhs = try rhs()
+    }
+}
+
+public extension Optional where Wrapped == Bool {
+    
+    /// Returns the wrapped `Bool` value if not `nil`. `false` otherwise.
+    @inlinable
+    static prefix func !!(rhs: Self) -> Bool {
+        rhs ?? false
     }
 }

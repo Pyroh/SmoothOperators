@@ -71,6 +71,8 @@ let b: Int? = nil
 !!a // false
 ```
 
+If the receiver is of type  `Optional<Bool>` the wrapped value is returned or `false` if the receiver is `nil`  
+
 ### NaN-Coalescing `??`
 Is the same as the nil-coalescing operator but for floating point values. These values can be NaN.   
 This operator returns the value if it's not NaN otherwise it returns the default value.

@@ -33,7 +33,7 @@ public extension Collection {
     /// - Parameters:
     ///   - lhs: The collection to test for emptyness.
     ///   - rhs: The default collection to return if the collection is empty.
-    static func ??(lhs: Self, rhs: Self) -> Self {
-        lhs.isEmpty ? rhs : lhs
+    static func ??(lhs: Self, rhs: @autoclosure () throws -> Self) rethrows -> Self {
+        lhs.isEmpty ? try rhs() : lhs
     }
 }

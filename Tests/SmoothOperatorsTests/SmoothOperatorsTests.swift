@@ -90,8 +90,16 @@ final class SmoothOperatorsTests: XCTestCase {
         let a: Int? = 42
         let b: Int? = nil
         
+        let c: Bool? = true
+        let d: Bool? = false
+        let e: Bool? = nil
+        
         XCTAssertTrue(!!a)
         XCTAssertFalse(!!b)
+        
+        XCTAssertTrue(!!c)
+        XCTAssertFalse(!!d)
+        XCTAssertFalse(!!e)
     }
     
     func testTransformAndReassign() {
@@ -118,10 +126,10 @@ final class SmoothOperatorsTests: XCTestCase {
         let e: Double? = .nan
         
         XCTAssert(a ?? 0 == 42)
-        XCTAssert(b ?? 0 == 0)
+        XCTAssert(b ?? 42 == 42)
         XCTAssert(c ?? 0 == 42)
-        XCTAssert(d ?? 0 == 0)
-        XCTAssert((e ?? 0) ?? 1 == 1)
+        XCTAssert(d ?? 42 == 42)
+        XCTAssert(e ?? 0 ?? 1 == 1)
 
         let f: Decimal? = 42
         let g: Decimal? = nil
@@ -130,10 +138,11 @@ final class SmoothOperatorsTests: XCTestCase {
         let j: Decimal? = .nan
 
         XCTAssert(f ?? 0 == 42)
-        XCTAssert(g ?? 0 == 0)
+        XCTAssert(g ?? 42 == 42)
         XCTAssert(h ?? 0 == 42)
-        XCTAssert(i ?? 0 == 0)
-        XCTAssert((j ?? 0) ?? 1 == 1)
+        XCTAssert(i ?? 42 == 42)
+
+        XCTAssert(j ?? 0 ?? 1 == 0)
     }
     
     func testEmptyCoalescing() {
