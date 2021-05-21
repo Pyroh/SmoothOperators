@@ -129,7 +129,8 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(b ?? 42 == 42)
         XCTAssert(c ?? 0 == 42)
         XCTAssert(d ?? 42 == 42)
-        XCTAssert(e ?? 0 ?? 1 == 1)
+        XCTAssert((e ?? 0).isNaN)
+        XCTAssert((e ?? 0) ?? 42 == 42)
 
         let f: Decimal? = 42
         let g: Decimal? = nil
@@ -141,8 +142,8 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(g ?? 42 == 42)
         XCTAssert(h ?? 0 == 42)
         XCTAssert(i ?? 42 == 42)
-
-        XCTAssert(j ?? 0 ?? 1 == 0)
+        XCTAssert((j ?? 0).isNaN)
+        XCTAssert((j ?? 0) ?? 42 == 42)
     }
     
     func testEmptyCoalescing() {
@@ -186,6 +187,11 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(d == 0.605)
         XCTAssert(e == 0.705)
         XCTAssert(f == 0.805)
+    }
+    
+    func testConditonalNil() {
+        XCTAssertNil(false => 42.0)
+        XCTAssertNotNil(true => 42.0)
     }
     
     static var allTests = [

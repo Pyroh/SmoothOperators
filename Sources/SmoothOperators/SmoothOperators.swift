@@ -47,20 +47,21 @@ postfix operator +
 
 postfix operator %
 
-infix operator <-: AssignmentPrecedence
-infix operator ?=: AssignmentPrecedence
+infix operator <- : AssignmentPrecedence
+infix operator ?= : AssignmentPrecedence
 
-infix operator **: ExponentationPrecedence
+infix operator ** : ExponentationPrecedence
 
-infix operator >?: ComparisonPrecedence
-infix operator >=?: ComparisonPrecedence
+infix operator >? : ComparisonPrecedence
+infix operator >=? : ComparisonPrecedence
 
-infix operator <?: ComparisonPrecedence
-infix operator <=?: ComparisonPrecedence
+infix operator <? : ComparisonPrecedence
+infix operator <=? : ComparisonPrecedence
 
-infix operator ==?: ComparisonPrecedence
-infix operator !=?: ComparisonPrecedence
+infix operator ==? : ComparisonPrecedence
+infix operator !=? : ComparisonPrecedence
 
+infix operator => : ComparisonPrecedence
 
 /// Transform `lhs` using `rhs` and stores it in `lhs`.
 /// - Parameters:
@@ -74,6 +75,11 @@ public func <-<T>(lhs: inout T, rhs: (T) throws -> T) rethrows {
 @inlinable
 public func ?=<T>(lhs: inout T, rhs: T?) {
     lhs = rhs ?? lhs
+}
+
+@inlinable
+public func =><T>(lhs: Bool, rhs: @autoclosure () throws -> T) rethrows -> T? {
+    lhs ? try rhs() : nil
 }
 
 public postfix func %<I: BinaryInteger>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
