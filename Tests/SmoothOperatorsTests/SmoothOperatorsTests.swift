@@ -103,19 +103,36 @@ final class SmoothOperatorsTests: XCTestCase {
     }
     
     func testTransformAndReassign() {
-        var a: Int = 42
-        
-        a <- { $0 - 2 }
-        
-        XCTAssert(a == 40)
-        
         func divideByTwo(_ value: Int) -> Int {
             value / 2
         }
+
+        var a: Int = 42
+        
+        a <- { $0 - 2 }
+        XCTAssert(a == 40)
         
         a <- divideByTwo
-        
         XCTAssert(a == 20)
+        
+        var b: Int? = 42
+        
+        b <- { $0.map { $0 - 2 } }
+        XCTAssert(b == 40)
+        
+        b <-? divideByTwo
+        XCTAssert(b == 20)
+        
+        var c: Int?
+        
+        c <-? divideByTwo
+        XCTAssert(c == nil)
+        
+        c <-? { _ in 42 }
+        XCTAssert(c == nil)
+        
+        c <- { _ in 42 }
+        XCTAssert(c == 42)
     }
     
     func testNaNCoalescing() {
