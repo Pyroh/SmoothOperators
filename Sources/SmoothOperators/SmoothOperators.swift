@@ -53,6 +53,12 @@ infix operator ?= : AssignmentPrecedence
 
 infix operator ** : ExponentationPrecedence
 
+infix operator <| : ComparisonPrecedence
+infix operator |> : ComparisonPrecedence
+
+infix operator <=| : ComparisonPrecedence
+infix operator |>= : ComparisonPrecedence
+
 infix operator >? : ComparisonPrecedence
 infix operator >=? : ComparisonPrecedence
 

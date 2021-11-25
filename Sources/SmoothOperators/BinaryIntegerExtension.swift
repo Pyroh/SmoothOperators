@@ -49,4 +49,24 @@ public extension BinaryInteger {
     static func **<T: BinaryFloatingPoint>(lhs: Self, rhs: T) -> Self {
         return Self(pow(CGFloat(lhs), CGFloat(rhs)))
     }
+    
+    @inlinable
+    static func <| (lhs: Self, rhs: Self) -> Bool {
+        rhs - lhs == 1
+    }
+    
+    @inlinable
+    static func |> (lhs: Self, rhs: Self) -> Bool {
+        lhs - rhs == 1
+    }
+    
+    @inlinable
+    static func <=| (lhs: Self, rhs: Self) -> Bool {
+        lhs == rhs || rhs - lhs == 1
+    }
+    
+    @inlinable
+    static func |>= (lhs: Self, rhs: Self) -> Bool {
+        lhs == rhs || lhs - rhs == 1
+    }
 }

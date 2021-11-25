@@ -211,6 +211,37 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssertNotNil(true => 42.0)
     }
     
+    func testPredecessorAndSuccessors() {
+        let a = 1
+        let b = 2
+        let c = 3
+        let d = 1
+        
+        XCTAssertTrue(a <| b)
+        XCTAssertTrue(b <| c)
+        XCTAssertTrue(a <=| d)
+        
+        XCTAssertFalse(a <| c)
+        XCTAssertFalse(b <=| d)
+        
+        let f = -1
+        let g = -2
+        let h = -3
+        let i = -1
+        
+        XCTAssertTrue(f |> g)
+        XCTAssertTrue(g |> h)
+        XCTAssertTrue(f |>= i)
+        
+        XCTAssertFalse(f |> h)
+        XCTAssertFalse(g |>= i)
+        
+        XCTAssertFalse(a <| f)
+        XCTAssertFalse(a |> f)
+        XCTAssertFalse(a <=| f)
+        XCTAssertFalse(a |>= f)
+    }
+    
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),
         ("testPlusMinus", testPlusMinus),
