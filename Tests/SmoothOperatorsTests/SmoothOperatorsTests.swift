@@ -97,9 +97,16 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssertTrue(!!a)
         XCTAssertFalse(!!b)
         
+        XCTAssertFalse(!!!a)
+        XCTAssertTrue(!!!b)
+        
         XCTAssertTrue(!!c)
         XCTAssertFalse(!!d)
         XCTAssertFalse(!!e)
+        
+        XCTAssertFalse(!!!c)
+        XCTAssertTrue(!!!d)
+        XCTAssertTrue(!!!e)
     }
     
     func testTransformAndReassign() {
