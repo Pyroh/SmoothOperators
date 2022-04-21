@@ -249,6 +249,21 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssertFalse(a |>= f)
     }
     
+    func testBoolAlgebraAssignment() {
+        var a = true
+        var b = false
+        
+        a ||= false
+        XCTAssertTrue(a)
+        b &&= false
+        XCTAssertFalse(b)
+        
+        b &&= true
+        XCTAssertFalse(b)
+        b ||= true
+        XCTAssertTrue(b)
+    }
+    
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),
         ("testPlusMinus", testPlusMinus),
