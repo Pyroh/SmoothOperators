@@ -264,6 +264,75 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssertTrue(b)
     }
     
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    func testSIMDFloatExp() {
+        let sf2in = SIMD2<Float>(repeating: 2)
+        let sf2out = SIMD2<Float>(repeating: 8)
+        let sf2exp = SIMD2<Float>(repeating: 3)
+        
+        XCTAssert(sf2in ** sf2exp == sf2out)
+        XCTAssert(sf2in ** 3 == sf2out)
+        
+        let sf3in = SIMD3<Float>(repeating: 2)
+        let sf3out = SIMD3<Float>(repeating: 8)
+        let sf3exp = SIMD3<Float>(repeating: 3)
+        
+        XCTAssert(sf3in ** sf3exp == sf3out)
+        XCTAssert(sf3in ** 3 == sf3out)
+        
+        let sf4in = SIMD4<Float>(repeating: 2)
+        let sf4out = SIMD4<Float>(repeating: 8)
+        let sf4exp = SIMD4<Float>(repeating: 3)
+        
+        XCTAssert(sf4in ** sf4exp == sf4out)
+        XCTAssert(sf4in ** 3 == sf4out)
+        
+        let sf8in = SIMD8<Float>(repeating: 2)
+        let sf8out = SIMD8<Float>(repeating: 8)
+        let sf8exp = SIMD8<Float>(repeating: 3)
+        
+        XCTAssert(sf8in ** sf8exp == sf8out)
+        XCTAssert(sf8in ** 3 == sf8out)
+        
+        let sf16in = SIMD16<Float>(repeating: 2)
+        let sf16out = SIMD16<Float>(repeating: 8)
+        let sf16exp = SIMD16<Float>(repeating: 3)
+        
+        XCTAssert(sf16in ** sf16exp == sf16out)
+        XCTAssert(sf16in ** 3 == sf16out)
+    }
+    
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    func testSIMDDoubleExp() {
+        let sf2in = SIMD2<Double>(repeating: 2)
+        let sf2out = SIMD2<Double>(repeating: 8)
+        let sf2exp = SIMD2<Double>(repeating: 3)
+        
+        XCTAssert(sf2in ** sf2exp == sf2out)
+        XCTAssert(sf2in ** 3 == sf2out)
+        
+        let sf3in = SIMD3<Double>(repeating: 2)
+        let sf3out = SIMD3<Double>(repeating: 8)
+        let sf3exp = SIMD3<Double>(repeating: 3)
+        
+        XCTAssert(sf3in ** sf3exp == sf3out)
+        XCTAssert(sf3in ** 3 == sf3out)
+        
+        let sf4in = SIMD4<Double>(repeating: 2)
+        let sf4out = SIMD4<Double>(repeating: 8)
+        let sf4exp = SIMD4<Double>(repeating: 3)
+        
+        XCTAssert(sf4in ** sf4exp == sf4out)
+        XCTAssert(sf4in ** 3 == sf4out)
+        
+        let sf8in = SIMD8<Double>(repeating: 2)
+        let sf8out = SIMD8<Double>(repeating: 8)
+        let sf8exp = SIMD8<Double>(repeating: 3)
+        
+        XCTAssert(sf8in ** sf8exp == sf8out)
+        XCTAssert(sf8in ** 3 == sf8out)
+    }
+    
     static var allTests = [
         ("testTransformAndReassign", testTransformAndReassign),
         ("testPlusMinus", testPlusMinus),
