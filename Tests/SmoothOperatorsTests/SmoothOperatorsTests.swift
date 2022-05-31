@@ -306,31 +306,39 @@ final class SmoothOperatorsTests: XCTestCase {
     func testSIMDDoubleExp() {
         let sf2in = SIMD2<Double>(repeating: 2)
         let sf2out = SIMD2<Double>(repeating: 8)
+        let sf2out2 = SIMD2<Double>(repeating: 9)
         let sf2exp = SIMD2<Double>(repeating: 3)
         
         XCTAssert(sf2in ** sf2exp == sf2out)
         XCTAssert(sf2in ** 3 == sf2out)
+        XCTAssert(3 ** sf2in == sf2out2)
         
         let sf3in = SIMD3<Double>(repeating: 2)
         let sf3out = SIMD3<Double>(repeating: 8)
+        let sf3out2 = SIMD3<Double>(repeating: 9)
         let sf3exp = SIMD3<Double>(repeating: 3)
         
         XCTAssert(sf3in ** sf3exp == sf3out)
         XCTAssert(sf3in ** 3 == sf3out)
+        XCTAssert(3 ** sf3in == sf3out2)
         
         let sf4in = SIMD4<Double>(repeating: 2)
         let sf4out = SIMD4<Double>(repeating: 8)
+        let sf4out2 = SIMD4<Double>(repeating: 9)
         let sf4exp = SIMD4<Double>(repeating: 3)
         
         XCTAssert(sf4in ** sf4exp == sf4out)
         XCTAssert(sf4in ** 3 == sf4out)
+        XCTAssert(3 ** sf4in == sf4out2)
         
         let sf8in = SIMD8<Double>(repeating: 2)
         let sf8out = SIMD8<Double>(repeating: 8)
+        let sf8out2 = SIMD8<Double>(repeating: 9)
         let sf8exp = SIMD8<Double>(repeating: 3)
         
         XCTAssert(sf8in ** sf8exp == sf8out)
         XCTAssert(sf8in ** 3 == sf8out)
+        XCTAssert(3 ** sf8in == sf8out2)
     }
     
     static var allTests = [

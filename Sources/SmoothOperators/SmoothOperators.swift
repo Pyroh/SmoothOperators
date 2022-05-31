@@ -51,6 +51,7 @@ postfix operator %
 infix operator <- : AssignmentPrecedence
 infix operator <-? : AssignmentPrecedence
 infix operator ?= : AssignmentPrecedence
+infix operator =? : AssignmentPrecedence
 
 infix operator ||= : AssignmentPrecedence
 infix operator &&= : AssignmentPrecedence
@@ -103,7 +104,19 @@ public func ?= <T>(lhs: inout T, rhs: T?) {
     lhs = rhs ?? lhs
 }
 
+
+/// Assigns `rhs` to `lhs` if `lhs` is not equal to `rhs`.
+/// - Parameters:
+///   - lhs: A read write variable.
+///   - rhs: A value.
+@inlinable public func =? <T: Equatable>(lhs: inout T, rhs: T) {
+    if lhs != rhs { lhs = rhs }
+}
+
+
 @inlinable
+/// Returns `rhs` if `lhs` is `true`. Returns `nil` otherwise.
+/// - Note: The resulting value is an `Optional<T>`.
 public func => <T>(lhs: Bool, rhs: @autoclosure () throws -> T) rethrows -> T? {
     lhs ? try rhs() : nil
 }

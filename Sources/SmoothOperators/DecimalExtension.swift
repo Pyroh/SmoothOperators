@@ -35,7 +35,7 @@ public extension Decimal {
     /// - Parameters:
     ///   - decimalValue: A decimal value.
     ///   - defaultValue: A value to use as a default. defaultValue and floatingPointValue have the same type.
-    static func ??(decimalValue: Self, defaultValue: @autoclosure () throws -> Self) rethrows -> Self {
+    @inlinable static func ??(decimalValue: Self, defaultValue: @autoclosure () throws -> Self) rethrows -> Self {
         decimalValue.isNaN ? try defaultValue() : decimalValue
     }
 }

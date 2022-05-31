@@ -33,7 +33,7 @@ public extension FloatingPoint {
     /// - Parameters:
     ///   - floatingPointValue: A floating point value.
     ///   - defaultValue: A value to use as a default. defaultValue and floatingPointValue have the same type.
-    static func ??(floatingPointValue: Self, defaultValue: @autoclosure () throws -> Self) rethrows -> Self {
+    @inlinable static func ??(floatingPointValue: Self, defaultValue: @autoclosure () throws -> Self) rethrows -> Self {
         floatingPointValue.isNaN ? try defaultValue() : floatingPointValue
     }
 }
