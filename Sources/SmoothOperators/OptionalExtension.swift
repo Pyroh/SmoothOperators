@@ -46,6 +46,12 @@ public extension Optional {
         guard lhs == nil else { return }
         lhs = try rhs()
     }
+    
+    /// Assigns the result of `rhs` to `lhs` if `lhs` is not `nil`.
+    @inlinable static func !?=(lhs: inout Self, rhs: @autoclosure () throws -> Wrapped) rethrows {
+        guard lhs != nil else { return }
+        lhs = try rhs()
+    }
 }
 
 public extension Optional where Wrapped == Bool {

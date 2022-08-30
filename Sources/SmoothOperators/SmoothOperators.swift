@@ -51,6 +51,7 @@ postfix operator %
 infix operator <- : AssignmentPrecedence
 infix operator <-? : AssignmentPrecedence
 infix operator ?= : AssignmentPrecedence
+infix operator !?= : AssignmentPrecedence
 infix operator =? : AssignmentPrecedence
 
 infix operator ||= : AssignmentPrecedence
@@ -103,7 +104,6 @@ public func <-? <T>(lhs: inout T?, rhs: (T) throws -> T?) rethrows {
 public func ?= <T>(lhs: inout T, rhs: T?) {
     lhs = rhs ?? lhs
 }
-
 
 /// Assigns `rhs` to `lhs` if `lhs` is not equal to `rhs`.
 /// - Parameters:

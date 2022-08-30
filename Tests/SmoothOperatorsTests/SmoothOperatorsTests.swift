@@ -195,6 +195,15 @@ final class SmoothOperatorsTests: XCTestCase {
         
         c = 0
         XCTAssert(c == 0)
+        
+        var d: Int? = 0
+        var e: Int?
+        
+        d !?= 42
+        e !?= 42
+        
+        XCTAssert(d == 42)
+        XCTAssert(e == nil)
     }
     
     func testPercent() {
