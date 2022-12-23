@@ -74,7 +74,7 @@ infix operator <=? : ComparisonPrecedence
 infix operator ==? : ComparisonPrecedence
 infix operator !=? : ComparisonPrecedence
 
-infix operator => : ComparisonPrecedence
+infix operator => : AssignmentPrecedence
 
 /// Transforms `lhs` using `rhs` and stores it back in `lhs`.
 /// - Parameters:

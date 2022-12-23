@@ -225,6 +225,8 @@ final class SmoothOperatorsTests: XCTestCase {
     func testConditonalNil() {
         XCTAssertNil(false => 42.0)
         XCTAssertNotNil(true => 42.0)
+        XCTAssertNil(0 == 1 => 42.0)
+        XCTAssertNotNil(0 != 1 => 42.0)
     }
     
     func testPredecessorAndSuccessors() {
