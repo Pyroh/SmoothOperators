@@ -80,6 +80,7 @@ infix operator => : AssignmentPrecedence
 /// - Parameters:
 ///   - lhs: A read write variable.
 ///   - rhs: A transforming closure.
+@available(*, deprecated)
 @inlinable
 public func <- <T>(lhs: inout T, rhs: (T) throws -> T) rethrows {
     lhs = try rhs(lhs)
@@ -89,6 +90,7 @@ public func <- <T>(lhs: inout T, rhs: (T) throws -> T) rethrows {
 /// - Parameters:
 ///   - lhs: A read write variable.
 ///   - rhs: A transforming closure.
+@available(*, deprecated)
 @inlinable
 public func <-? <T>(lhs: inout T?, rhs: (T) throws -> T?) rethrows {
     if let value = lhs { lhs = try rhs(value) }
@@ -100,6 +102,7 @@ public func <-? <T>(lhs: inout T?, rhs: (T) throws -> T?) rethrows {
 /// - Parameters:
 ///   - lhs: A read write variable.
 ///   - rhs: An optional value.
+@available(*, deprecated)
 @inlinable
 public func ?= <T>(lhs: inout T, rhs: T?) {
     lhs = rhs ?? lhs
@@ -109,26 +112,29 @@ public func ?= <T>(lhs: inout T, rhs: T?) {
 /// - Parameters:
 ///   - lhs: A read write variable.
 ///   - rhs: A value.
-@inlinable public func =? <T: Equatable>(lhs: inout T, rhs: T) {
+@available(*, deprecated)
+@inlinable
+public func =? <T: Equatable>(lhs: inout T, rhs: T) {
     if lhs != rhs { lhs = rhs }
 }
 
 
-@inlinable
 /// Returns `rhs` if `lhs` is `true`. Returns `nil` otherwise.
 /// - Note: The resulting value is an `Optional<T>`.
+@available(*, deprecated)
+@inlinable
 public func => <T>(lhs: Bool, rhs: @autoclosure () throws -> T) rethrows -> T? {
     lhs ? try rhs() : nil
 }
 
-public postfix func % <I: BinaryInteger>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryInteger>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
 
-public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> Double { Double(lhs) / 100.0 }
 
-public postfix func % <I: BinaryInteger>(_ lhs: I) -> CGFloat { CGFloat(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryInteger>(_ lhs: I) -> CGFloat { CGFloat(lhs) / 100.0 }
 
-public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> CGFloat { CGFloat(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> CGFloat { CGFloat(lhs) / 100.0 }
 
-public postfix func % <I: BinaryInteger>(_ lhs: I) -> Float { Float(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryInteger>(_ lhs: I) -> Float { Float(lhs) / 100.0 }
 
-public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> Float { Float(lhs) / 100.0 }
+@inlinable public postfix func % <I: BinaryFloatingPoint>(_ lhs: I) -> Float { Float(lhs) / 100.0 }

@@ -26,7 +26,7 @@
 //  SOFTWARE.
 //
 
-
+@available(*, deprecated)
 public extension Equatable {
     
     /// Returns `lhs` if it is equal to the result of `rhs`. `nil` otherwise.
@@ -44,6 +44,7 @@ public extension Equatable {
     @inlinable static func !=?(lhs: Self, rhs: Self) -> Self? { lhs != rhs ? lhs : nil }
 }
 
+@available(*, deprecated)
 public extension Comparable {
     
     /// Returns `lhs` if it is greater than the result of `rhs`. `nil` otherwise.

@@ -42,12 +42,14 @@ public extension Optional {
     }
     
     /// Assigns the result of `rhs` to `lhs` if `lhs` is `nil`.
+    @available(*, deprecated)
     @inlinable static func ?=(lhs: inout Self, rhs: @autoclosure () throws -> Wrapped) rethrows {
         guard lhs == nil else { return }
         lhs = try rhs()
     }
     
     /// Assigns the result of `rhs` to `lhs` if `lhs` is not `nil`.
+    @available(*, deprecated)
     @inlinable static func !?=(lhs: inout Self, rhs: @autoclosure () throws -> Wrapped) rethrows {
         guard lhs != nil else { return }
         lhs = try rhs()

@@ -351,15 +351,4 @@ final class SmoothOperatorsTests: XCTestCase {
         XCTAssert(sf8in ** 3 == sf8out)
         XCTAssert(3 ** sf8in == sf8out2)
     }
-    
-    static var allTests = [
-        ("testTransformAndReassign", testTransformAndReassign),
-        ("testPlusMinus", testPlusMinus),
-        ("testPrefix", testPrefix),
-        ("testPostfix", testPostfix),
-        ("testExponentInteger", testExponentInteger),
-        ("testExponentFloatingPoint", testExponentFloatingPoint),
-        ("testBooleanCast", testBooleanCast),
-        ("testTransformAndReassign", testTransformAndReassign)
-    ]
 }

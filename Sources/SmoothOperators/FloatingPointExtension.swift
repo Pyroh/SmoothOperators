@@ -27,6 +27,7 @@
 //
 
 
+@available(*, deprecated)
 public extension FloatingPoint {
     
     /// Performs a nan-coalescing operation, returning the value of `FloatingPoint` instance or a default value.

@@ -28,6 +28,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 public extension Collection {
     /// Performs a empty-coalescing operation, returning the given collection if it's not empty or a default collection otherwise.
     /// - Parameters:

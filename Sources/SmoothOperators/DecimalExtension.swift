@@ -29,6 +29,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 public extension Decimal {
 
     /// Performs a nan-coalescing operation, returning the value of `Decimal` instance or a default value.
